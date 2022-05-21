@@ -1,0 +1,65 @@
+Dependencies for Project 'SpaceInvaders', Target 'SpaceInvaders': (DO NOT MODIFY !)
+F (.\startup.s)(0x5197C8FA)(--cpu Cortex-M4 --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\random.s)(0x5349B084)(--cpu Cortex-M4 --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary--list .\random.lst --xref -o .\random.o --depend .\random.d)
+F (.\SpaceInvaders.c)(0x6288075D)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\spaceinvaders.o --omf_browse .\spaceinvaders.crf --depend .\spaceinvaders.d)
+I (tm4c123gh6pm11.h)(0x51D44682)
+I (../TM4C123GH6PM.h)(0x624AE478)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C4C22)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C4C22)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C4C22)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C4C22)
+I (../system_TM4C123.h)(0x532C4878)
+I (Nokia5110.h)(0x6287AABE)
+I (Random.h)(0x52866C32)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C819B4)
+I (../driver/gpio.h)(0x6288060B)
+I (../driver/gpio_cfg.h)(0x628297D2)
+I (../ADC/adc_driver.h)(0x6287C9C2)
+I (../Timer0/Timer_0.h)(0x6286742A)
+F (.\TExaS.c)(0x569B476C)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\texas.o --omf_browse .\texas.crf --depend .\texas.d)
+I (TExaS.h)(0x569B4776)
+F (.\VirtualNokia5110.c)(0x6287A93C)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\virtualnokia5110.o --omf_browse .\virtualnokia5110.crf --depend .\virtualnokia5110.d)
+I (Nokia5110.h)(0x6287AABE)
+F (.\adc_driver.h)(0x00000000)()
+F (.\gpio.h)(0x00000000)()
+F (.\gpio_cfg.h)(0x00000000)()
+F (.\MATH_LIB.h)(0x00000000)()
+F (.\Nokia5110.h)(0x6287AABE)()
+F (.\Timer_0.h)(0x00000000)()
+F (..\Timer0\Timer0.c)(0x628803E4)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer0.o --omf_browse .\timer0.crf --depend .\timer0.d)
+I (..\Timer0\../../../tm4c123gh6pm11.h)(0x51D44682)
+I (..\Timer0\..//TM4C123GH6PM.h)(0x624AE478)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C4C22)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C4C22)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C4C22)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C4C22)
+I (..\Timer0\..//system_TM4C123.h)(0x532C4878)
+I (..\Timer0\Timer_0.h)(0x6286742A)
+F (..\final\adc_driver.c)(0x62880257)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\adc_driver.o --omf_browse .\adc_driver.crf --depend .\adc_driver.d)
+I (..\final\../TM4C123GH6PM.h)(0x624AE478)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C4C22)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C4C22)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C4C22)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C4C22)
+I (..\final\../system_TM4C123.h)(0x532C4878)
+I (..\..\..\tm4c123gh6pm11.h)(0x51D44682)
+I (..\final\../driver/gpio.h)(0x6288060B)
+I (..\final\../driver/gpio_cfg.h)(0x628297D2)
+I (..\final\adc_driver.h)(0x628665EC)
+F (..\driver\gpio.c)(0x6288060F)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gpio.o --omf_browse .\gpio.crf --depend .\gpio.d)
+I (..\driver\gpio.h)(0x6288060B)
+I (..\driver\gpio_cfg.h)(0x628297D2)
+I (..\driver\../TM4C123GH6PM.h)(0x624AE478)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C4C22)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C4C22)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C4C22)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C4C22)
+I (..\driver\../system_TM4C123.h)(0x532C4878)
+I (..\driver\MATH_LIB.h)(0x624AF792)
+F (..\driver\gpio_cfg.c)(0x6288067F)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gpio_cfg.o --omf_browse .\gpio_cfg.crf --depend .\gpio_cfg.d)
+I (..\driver\gpio.h)(0x6288060B)
+I (..\driver\gpio_cfg.h)(0x628297D2)
