@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Keil\TExaSware\C15_Timer0A\prijec.uvproj
+Project File Date:  05/18/2022
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling Timer0.c...
+Timer0.c(34): error:  #20: identifier "SYSCTL_RCGCTIMER_R" is undefined
+    SYSCTL_RCGCTIMER_R |= 0x01;   // 0) activate TIMER0
+Timer0.c(36): error:  #20: identifier "TIMER0_CTL_R" is undefined
+    TIMER0_CTL_R = 0x00000000;    // 1) disable TIMER0A during setup
+Timer0.c(37): error:  #20: identifier "TIMER0_CFG_R" is undefined
+    TIMER0_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+Timer0.c(38): error:  #20: identifier "TIMER0_TAMR_R" is undefined
+    TIMER0_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
+Timer0.c(39): error:  #20: identifier "TIMER0_TAILR_R" is undefined
+    TIMER0_TAILR_R = period-1;    // 4) reload value
+Timer0.c(40): error:  #20: identifier "TIMER0_TAPR_R" is undefined
+    TIMER0_TAPR_R = 0;            // 5) bus clock resolution
+Timer0.c(41): error:  #20: identifier "TIMER0_ICR_R" is undefined
+    TIMER0_ICR_R = 0x00000001;    // 6) clear TIMER0A timeout flag
+Timer0.c(42): error:  #20: identifier "TIMER0_IMR_R" is undefined
+    TIMER0_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+Timer0.c(43): error:  #20: identifier "NVIC_PRI4_R" is undefined
+    NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0x80000000; // 8) priority 4
+Timer0.c(46): error:  #20: identifier "NVIC_EN0_R" is undefined
+    NVIC_EN0_R = 1<<19;           // 9) enable IRQ 19 in NVIC
+Timer0.c(51): error:  #20: identifier "TIMER0_ICR_R" is undefined
+    TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER0A timeout
+Timer0.c(51): error:  #20: identifier "TIMER_ICR_TATOCINT" is undefined
+    TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER0A timeout
+Timer0.c: 0 warnings, 12 errors
+".\prijec.axf" - 12 Error(s), 0 Warning(s).
+Target not created
