@@ -1,0 +1,1 @@
+.\uartinit.o: uartinit.c
