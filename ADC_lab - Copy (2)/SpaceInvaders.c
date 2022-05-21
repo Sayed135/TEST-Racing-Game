@@ -392,3 +392,221 @@ void Get_Per()
 	}
 
 }
+
+void Permutation_Gen(int idx,int cnt )
+{
+	unsigned int i=0;
+	if(vis[idx])
+		return ;
+	vis[idx]=cnt;
+	if(cnt==5)
+	{
+		for( i=0; i<5; i++)
+		{
+			per[n][i]=vis[i];
+		}
+		n++;
+
+	}
+	for( i=0; i<5; i++)
+	{
+		Permutation_Gen(i,cnt+1);
+	}
+	vis[idx]=0;
+}
+
+
+void Init_Game()
+{
+	unsigned int i=0;
+	arr[0]=1;
+	for(i=1;i<5;i++)
+	{
+		arr[i]=ENEMYW*i+1;
+		
+	}
+	racer.life=3;
+	t=ch;	
+	score=0;
+	
+}
+
+
+void Init_enemy()
+{
+	
+	unsigned int i=0, x=rand();
+	x%=120;
+	for( i=0; i<3; i++)
+	{
+		en[i].posx=arr[per[x][i]];
+		en[i].posy=0;
+	}
+}
+
+
+void move_enemy()
+{
+	unsigned int i=0;
+	for( i=0; i<3; i++)
+	{
+		en[i].posy++;
+	}
+	if(en[0].posy==48)
+	{
+		Init_enemy();
+	}
+}
+
+
+void Init_Player(int st)
+{
+	racer.posl=st;
+	racer.posr=st+PLAYERW;
+}
+
+void move_racer(int st)
+{
+	racer.posl=st;
+	racer.posr=st+PLAYERW;
+}
+
+
+short int isalive()
+{
+	unsigned int i=0;
+	for( i=0; i<3; i++)
+	{
+		//if there is a collision
+		if(en[i].posy>=30&&((en[i].posx+1<=racer.posr-1&&en[i].posx+ENEMYW-1>=racer.posr-1)||(en[i].posx+1<=racer.posl+1&&en[i].posx+ENEMYW-1>=racer.posl+1)))
+		{
+			//print an explosion
+			Nokia5110_PrintBMP(racer.posl,30 , BigExplosion0, 0);
+			Nokia5110_DisplayBuffer();
+			
+			// Clash Notification
+			GPIO_PORTS_REGS[GPIO_PORT_E]->DATA |= (1<<2);
+			t=ch;
+			Delay100ms(5);
+			//reset 
+			GPIO_PORTS_REGS[GPIO_PORT_E]->DATA &=~ (1<<2);
+			
+			racer.life--;
+			
+			return 0;
+		}
+	}
+	return 1;
+
+}
+
+
+
+void Play()
+{
+ while(1)
+ {
+  
+
+  if(racer.life)
+   Start();
+  else
+  {
+   Game_Over();
+   break;
+  }
+ }
+}
+
+
+
+
+void Start()
+{
+	unsigned int i=0;
+	// take input from slider
+	Init_enemy();
+	Init_Player(adcData);
+	while(isalive())
+	{
+		if((ADC0_RIS_R & (1 << 3)) == (1 << 3))
+			{
+				ADC0_ISC_R |= (1 << 3); //clear the interrupt bit
+				adcData = ADC0_SSFIFO3_R;
+		
+		  }
+		move_racer(adcData/99);
+		move_enemy();
+		Nokia5110_ClearBuffer();
+		score++;
+
+		Nokia5110_DisplayBuffer();      // draw buffer
+		Nokia5110_PrintBMP(0,46 , boundary, 0);
+		if(score<100)Nokia5110_PrintBMP(racer.posl,30+PLAYERH , PLAYER, 0);   //upgrade the car when the score reaches 100
+		else Nokia5110_PrintBMP(racer.posl,30+PLAYERH , supercar, 0);    
+		Nokia5110_PrintBMP(51,48 , vl, 0);			// player ship middle bottom
+		
+		//print hears for length
+		for( i=0;i<racer.life;i++)
+		{
+				Nokia5110_PrintBMP(60,15+i*10 , health, 0);
+		}
+		
+		//print enemies
+		for( i=0 ; i < 3 ; i++)
+		{
+			Nokia5110_PrintBMP(en[i].posx, en[i].posy, ENEMY, 0);
+
+		}
+		Nokia5110_DisplayBuffer();
+		Nokia5110_SetCursor(8, 4);
+		Print_Dec(score);
+		Delay100ms(1);
+	}
+
+}
+void Game_Over()
+{
+ Nokia5110_Clear();
+ Nokia5110_SetCursor(1, 1);
+ Nokia5110_OutString("GAME OVER");
+ Nokia5110_SetCursor(1, 2);
+ Nokia5110_OutString("Your Score");
+ Nokia5110_SetCursor(2, 3);
+ 
+ 
+ Nokia5110_OutUDec(score);
+ Nokia5110_SetCursor(1, 4);
+ Nokia5110_OutString("High score");
+ if(mxscore<score)
+  mxscore=score;
+ Nokia5110_SetCursor(2, 5);
+ Nokia5110_OutUDec(mxscore);
+ Delay100ms(5);
+ Nokia5110_Clear();
+ Nokia5110_SetCursor(1, 1);
+ Nokia5110_OutString("PRESS");
+ Nokia5110_SetCursor(1, 2);
+ Nokia5110_OutString("SWITCH");
+ Nokia5110_SetCursor(3, 3);
+ Nokia5110_OutString("TO");
+ Nokia5110_SetCursor(1, 4);
+ Nokia5110_OutString("CONTINUE");
+ while(1)
+ {
+  if(GPIO_PORTS_REGS[GPIO_PORT_E]->DATA &(0x00000008))
+  {
+   Init_Game();
+   Play();
+   break;
+  }
+ }
+  
+}
+
+
+
+void speed_up(){
+
+if(t>250000)t-=50;
+}
