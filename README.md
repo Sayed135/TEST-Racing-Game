@@ -7,15 +7,15 @@ This project is about making the race game using Tiva™ C Series TM4C123GH6PM m
 The project uses GPIO driver to control the pins of the microcontroller, ADC driver controlled by potentiometer to control the player movement, and timer driver to control the timing of the game.
 The Tiva™ C Series TM4C123GH6PM offers these features:
 
-1 High Performance TM4C123GH6PM MCU:
+> High Performance TM4C123GH6PM MCU:
 o 80MHz 32-bit ARM Cortex-M4-based microcontrollers CPU
 o 256KB Flash, 32KB SRAM, 2KB EEPROM
 o Motion control PWM
 o USB 2.0 Host/Device/OTG + PHY
 o RGB user LED
 o Dual 12-bit 2MSPS ADCs, motion control PWMs
-o 8 UART, 6 I2C, 4 SPI
+>> 8 UART, 6 I2C, 4 SPI
 
-2 On-board In-Circuit Debug Interface (ICDI)
+> On-board In-Circuit Debug Interface (ICDI)
 
-3 USB Micro-B plug to USB-A plug cable
+> USB Micro-B plug to USB-A plug cable
